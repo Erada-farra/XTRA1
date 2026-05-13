@@ -13,6 +13,27 @@ if (revolutionBike) {
     observer.observe(revolutionBike);
 }
 // ===== END 
+// ===== TESTIMONIALS SLIDER =====
+const testimonialItems = document.querySelectorAll('.testimonial-item');
+const prevBtn = document.querySelector('.testimonials__arrow--prev');
+const nextBtn = document.querySelector('.testimonials__arrow--next');
+let currentIndex = 0;
+
+function showTestimonial(index) {
+    testimonialItems.forEach(item => item.classList.remove('active'));
+    testimonialItems[index].classList.add('active');
+}
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % testimonialItems.length;
+    showTestimonial(currentIndex);
+});
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
+    showTestimonial(currentIndex);
+});
+// ===== END TESTIMONIALS SLIDER =====
 // ===== BIKES SLIDER =====
 (function () {
     const track = document.querySelector('.slider-track');
